@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Malti's Groceries Purchase</title>
+</head>
+<body>
+	<form action="purchases.php" method="POST">
+		<h1>Make a Purchase</h1>
+		<input type="text" name="item-name" placeholder="Name">
+		<input type="number" name="item-price" placeholder="Price per Unit">
+		<input type="number" name="item-qty" placeholder="Quantity"> 
+		<select name="item-unit">
+			<option value="nil">Select Unit</option>
+			<option value="kg">Kg</option>
+			<option value="g">g</option>
+			<option value="l">L</option>
+			<option value="ml">ml</option>
+		</select>
+		<input type="submit" name="submit">
+	</form>
+	
+</body>
+</html>

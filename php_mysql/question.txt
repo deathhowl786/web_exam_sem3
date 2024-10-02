@@ -1,0 +1,10 @@
+Practice question for Web :-
+Malti, an SyBA student , requires to keep a track of the groceries at her PG accommodation. 
+
+She resorts to weekly purchase of   Items ans writes them as categories, item name and the quantity on her refrigerator with the piece of paper and fridge magnet. 
+
+Each time she consumes the food items bread, eggs, milk, onions etc., she has to erase and add rewrite to the list. 
+
+She is busy with the end semester exams and constant assignments to be submitted to her different courses under NEP. She has to constantly check the list on her fridge or click pictures to replenish her groceries.
+
+Malti aaproaches you to provide a tech driven solution, that is easy for her to use.
