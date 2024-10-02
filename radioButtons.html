@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body style="margin:0; padding:0; height:100vh;display: flex; justify-content: center; align-items: center; flex-direction: column;">
+	<h1>Radio Buttons</h1>
+	<div>
+		<input type="radio" name="buttonGroup" value="A" onclick="setVal(this)">
+		<input type="radio" name="buttonGroup" value="B" onclick="setVal(this)">
+		<input type="radio" name="buttonGroup" value="C" onclick="setVal(this)">
+		<input type="radio" name="buttonGroup" value="D" onclick="setVal(this)">
+	</div>
+	<input type="text" name="result" id="result" disabled>
+
+
+	<script type="text/javascript">
+		function setVal(element){
+			document.getElementById("result").value = "You have selected " + element.value;
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style>
+
+		*{
+			margin: 0;
+			padding: 0;
+/*			border: 1px solid red;*/
+		}
+
+		body{
+
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+		}
+		.subject{
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			gap: 22px;
+			margin: 22px;
+			padding: 22px 12px;
+			border-radius: 15px;
+			border: 1px solid black;
+			text-align: center;
+		}
+
+		.
+
+	</style>
+</head>
+<body>
+
+<!-- 	<div class="subject" id="subject-i">
+		<h2>Subject i</h2>
+		<input type="number" name="obt-i" id="obt-i" placeholder="Marks Obtained" min="0">
+		<input type="number" name="max-i" id="max-i" placeholder="Max Marks" min="0">
+	</div> -->
+
+
+	<script src="./jquery/jquery.js"></script>
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+			var n = window.prompt("Enter Number of Subjects");
+			var max = window.prompt("Set all default Max Marks to");
+			// var n = 5;
+			// var max = 100;
+
+			for(var i = 1; i<=n; i++){
+
+				var html = `<div class="subject" id="subject-${i}">
+								<h2>Subject ${i}</h2>
+								<input type="number" name="obt-i" id="obt-${i}" placeholder="Marks Obtained" min="0">
+								<input type="number" name="max-i" id="max-${i}" placeholder="Max Marks" min="0" value="${max}">
+							</div>`;
+
+				$("body").append(html);			
+			};
+
+			var html = `<div class="subject" id="result">
+								<h2>Result</h2>
+								<input type="text" id="result-box" disabled>
+								<input type="button" id="average" value="Average">
+								<input type="button" id="percentage" value="Percentage">
+							</div>`;
+
+			$("body").append(html);	
+
+
+			$("#average").on("click", function(){
+				var totalMarks = 0;
+				var totalMaxMarks = 0;
+				for(var i = 1; i <= n; i++){
+					totalMarks += parseInt($("#obt-"+i).val()) * parseInt($("#max-"+i).val());
+					totalMaxMarks += parseInt($("#max-"+i).val());
+				}
+
+				$("#result-box").val("Average is " + Math.round(totalMarks/totalMaxMarks, 2));
+			});
+
+
+			$("#percentage").on("click", function(){
+				var totalMarks = 0;
+				var totalMaxMarks = 0;
+				for(var i = 1; i <= n; i++){
+					totalMarks += parseInt($("#obt-"+i).val());
+					totalMaxMarks += parseInt($("#max-"+i).val());
+				}
+
+				$("#result-box").val("Percentage is " + Math.round(totalMarks*100/totalMaxMarks, 2) + "%");
+			});
+
+		});
+
+	</script>
+</body>
+</html>

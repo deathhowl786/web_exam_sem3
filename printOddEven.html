@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Print Odd Even</title>
+	<style>
+
+		*{
+/*			border: 1px solid black;*/
+			margin: 0;
+			padding: 0;
+		}
+		.outer-box{
+			width: 100vw;
+			height: 100vh;
+			background-color: lightcoral;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.inner-box{
+			width: 600px;
+			height: 600px;
+			margin: 22px;
+			text-align: center;
+			overflow-y: scroll;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="outer-box">
+		
+		<div id="even-div" class="inner-box">
+			<button onclick='print("even");'>Print Even 50</button>
+		</div>
+		<div id="odd-div" class="inner-box">
+			<button onclick='print("odd");'>Print Odd 50</button>
+		</div>
+
+	</div>
+
+
+
+<script type="text/javascript">
+	
+	function print(type){
+		var temp = document.createElement("div");
+		var checker = (type==="even")?0:1;
+
+		var start = 1;
+		var end = 50;
+
+		for(var i = start; i <= end; i++){
+			if(i%2 == checker ){
+				data = document.createElement("span");
+				br = document.createElement("br");
+				data.innerText = i + " ";
+
+				// temp.appendChild(br);
+				temp.appendChild(data);
+			}
+		}
+		// alert("hello");
+		document.getElementById(type + "-div").appendChild(temp);
+
+	}
+
+</script>
+</body>
+</html>

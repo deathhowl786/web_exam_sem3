@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>News Website</title>
+</head>
+
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	.news-list{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		min-height: 100vh;
+		width: 100vw;
+		background-color: maroon;
+	}
+
+	h1{
+		top: 15px;
+		position: absolute;
+		color: aliceblue;
+	}
+
+	.news{
+		background-color: blanchedalmond;
+		margin: 12px;
+		padding: 12px;
+		text-align: justify;
+		width: 50%;
+		height: auto;
+	}
+
+	.news h2{
+		margin: 12px;
+	}
+
+	.news p{
+		margin: 12px;
+		font-size: 18px;
+
+		span a{
+			font-weight: bolder;
+			color: maroon;
+			text-decoration: none;
+		}
+		span a:hover{
+			text-decoration: underline;
+		}
+	}	
+
+
+</style>
+<script src="./jquery/jquery.js"></script>
+<script type="text/javascript">
+
+	$.ajax({
+			type: "GET",
+			url: "news.xml",
+			dataType: "xml",
+			success: function(xml){
+
+				$(xml).find("News").each(function(){
+
+					var html = `
+					<div class="news">
+						<h2>${$(this).find("Title").text()}</h2>
+						<p>${$(this).find("Content").text()}
+							<span><a href="${$(this).find("Link").text()}">read more...</a></span>
+						</p>
+					</div>`;
+
+					$(".news-list").append(html);
+
+
+				});
+				$(".news p").hide();
+			},
+			error: function(){
+				alert("Error");
+			}
+		});
+
+	</script>
+
+<body>	
+
+	<div class="news-list">
+		<!-- <h1>Welcome to News Bytes!</h1> -->
+		</div>
+	</div>
+
+	<script>
+
+	$(".news").ready(function(){
+		console.log("loaded");
+		$(".news").mouseenter(function(){
+			$(this).find("p").show("slow");
+		});
+
+		$(".news").mouseleave(function(){
+			$(this).find("p").hide("slow");
+		});
+
+	})
+
+
+
+
+
+</script>
+
+
+
+
+</body>
+
+</html>

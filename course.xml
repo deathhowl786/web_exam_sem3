@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Courses
+[
+<!ELEMENT Courses (Course+)>
+<!ELEMENT Course (Name, Professor+, Credits, Department?, PreRequisites?, Semester)>
+<!ATTLIST Course id CDATA #REQUIRED >
+
+<!ELEMENT Name (#PCDATA)>
+<!ELEMENT Professor (#PCDATA)>
+<!ELEMENT Credits (#PCDATA)>
+<!ELEMENT Department EMPTY>
+<!ATTLIST Department id (GEO|ZOO|BMS|BMM|BIO|IT|MATHS|STATS|BAF) #REQUIRED>
+
+<!ELEMENT PreRequisites (CourseID+)>
+<!ELEMENT CourseID (#PCDATA)>
+
+<!ELEMENT Semester EMPTY>
+<!ATTLIST Semester type (Odd|Even) #REQUIRED>
+<!ATTLIST Semester id (1|2|3|4|5|6) #REQUIRED>
+]>
+
+
+<Courses>
+	<Course id="USITY5001CR2">
+		<Name>
+			Data Base Management Systems
+		</Name>
+		<Professor>
+			Roy Thomas
+		</Professor>
+		<Credits>4</Credits>
+		<Department id="IT" />
+		<Semester type="Odd" id="3" />
+	</Course>
+	<Course>
+		<Name>
+			OOPS with JAVA
+		</Name>
+		<Professor>
+			Subhash Kumar
+		</Professor>
+		<Credits>4</Credits>
+		<Department id="IT" />
+		<Semester type="Odd" id="3" />
+	</Course>
+
+	<Course>
+		<Name>
+			Taxation	
+		</Name>
+		<Professor>
+			Sanjay Parab
+		</Professor>
+		<Credits>4</Credits>
+		<Department id="BAF" />
+		<Semester type="Even" id="2" />
+	</Course>
+</Courses>

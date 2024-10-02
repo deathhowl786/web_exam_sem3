@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Calendar</title>
+
+	<style>
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+		.calendar{
+			font-family: "Roboto";
+			background-color: royalblue;
+			width: 100vw;
+			height: 100vh;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			gap: 22px;
+		}
+
+		.calendar table{
+			width: 750px;
+			height: 500px;
+			text-align: center;
+		}
+
+		.calendar td, .calendar th{
+			height: 25px;
+			width: 30px;
+			border: 1px solid black;
+			font-size: 18px;
+		}
+		.calendar td:hover{
+			background-color: rosybrown;
+			color: blanchedalmond;
+		}
+
+		.holiday{
+			background-color: red;
+		}
+
+		.holiday span{
+			display: block;
+  			opacity: 0;                /* Initially invisible */
+  			max-height: 0;             /* Set the maximum height to 0 initially */
+  			overflow: hidden;          /* Hide the content when max-height is 0 */
+  			transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;  /* Smooth transition for both height and opacity */
+		}
+		.holiday:hover{
+			span{
+			 opacity: 1;                /* Fade in */
+  			 max-height: 100px;         /* Adjust the max-height to allow full visibility */
+			}
+		}
+
+
+	</style>
+</head>
+<body>
+	<div class="calendar">
+		<h1>October 2024</h1>
+		<table>
+			<thead>
+				<tr>
+					<th>Sun</th>
+					<th>Mon</th>
+					<th>Tue</th>
+					<th>Wed</th>
+					<th>Thu</th>
+					<th>Fri</th>
+					<th>Sat</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>29</td>
+					<td>30</td>
+					<td>01</td>
+					<td class="holiday">02<span>Gandhi Jayanti</span></td>
+					<td>03</td>
+					<td>04</td>
+					<td>05</td>
+				</tr>
+				<tr>
+					<td>06</td>
+					<td>07</td>
+					<td>08</td>
+					<td>09</td>
+					<td class="holiday">10<span>Maha Saptami</span></td>
+					<td class="holiday">11<span>Maha Navami</span></td>
+					<td class="holiday">12<span>Dussehra</span></td>
+				</tr>
+				<tr>
+					<td>13</td>
+					<td>14</td>
+					<td>15</td>
+					<td>16</td>
+					<td class="holiday">17<span>Valmiki Jayanti</span></td>
+					<td>18</td>
+					<td>19</td>
+				</tr>
+				<tr>
+					<td class="holiday">20<span>Karva Chauth</span></td>
+					<td>21</td>
+					<td>22</td>
+					<td>23</td>
+					<td>24</td>
+					<td>25</td>
+					<td>26</td>
+				</tr>
+
+				<tr>
+					<td>27</td>
+					<td>28</td>
+					<td>29</td>
+					<td>30</td>
+					<td class="holiday">31<span>Diwali</span></td>
+					<td>01</td>
+					<td>02</td>
+				</tr>
+			</tbody>
+		</table>	
+	</div>
+</body>
+</html>
