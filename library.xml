@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Library
+[
+<!ELEMENT Library (Book+)>
+<!ELEMENT Book (Title, Author+, Genre*, Year, Price?)>
+<!ATTLIST Book id ID #REQUIRED>
+<!ELEMENT Title (#PCDATA)>
+<!ELEMENT Author (#PCDATA)>
+<!ELEMENT Genre (#PCDATA)>
+<!ELEMENT Year (#PCDATA)>
+<!ELEMENT Price (#PCDATA)>
+<!ENTITY copyright "&#169;" >
+]>
+
+<Library>
+	<Book id="1">
+		<Title>One Piece &copyright;</Title>
+		<Author>Eichiro Oda</Author>
+		<Genre>Adventure</Genre>
+		<Year>1998</Year>
+	</Book>
+</Library>
