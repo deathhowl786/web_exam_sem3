@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Form</title>
+
+
+<style>
+	
+	*{
+/*		border: 1px solid red;*/
+		margin: 0;
+		padding: 0;
+	}
+
+	body{
+		min-width: 100vw;
+		min-height: 100vh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	form{
+		border-radius: 15px;
+		border: 1px solid black;
+		width: 450px;
+		height: 600px;
+		display: flex;
+		justify-content: space-evenly;
+		align-items: center;
+		flex-direction: column;
+
+		h1{
+			font-family: "Times New Roman";
+		}
+	}
+
+	.inp-group{
+		width: 90%;
+	}
+
+	.inp-group input, .inp-group label{
+		border-radius: 5px;
+		margin: 12px;
+		width: 90%;
+		height: 32px;
+		font-size: 18px;
+		padding-inline: 12px;
+	}
+
+	.inp-group label{
+		font-size: 22px;
+		font-family: monospace;
+	}
+	.inp-group span{
+		margin: 12px;
+		padding: 12px;
+	}
+
+	.green{
+		color: green;
+	}
+	.red{
+		color: red;
+	}
+
+</style>
+
+
+
+</head>
+<body>
+
+
+	<form method="POST" action="form.php" id="signup-form">
+		
+		<h1>Signup</h1>
+
+
+		<div class="inp-group">
+			<label for="username">Username</label>
+		<input type="text" name="username" id="username" onkeyup="checkUsername();">
+		<span id="username-err"></span>
+		</div>
+		<div class="inp-group">
+			<label for="email">Email</label>
+		<input type="text" name="email" id="email" onkeyup="checkEmail();">
+		<span id="email-err"></span>
+		</div>
+		<div class="inp-group">
+			<label for="password">Password</label>
+		<input type="text" name="password" id="password" onkeyup="checkPassword();">
+		<span id="password-err"></span>
+		</div>
+		<div class="inp-group">
+			<input type="submit" name="submit" id="submit" onclick="validate();">
+		<input type="reset" name="reset" id="reset">
+		</div>
+
+
+	</form>
+
+
+	<script src="./jquery/jquery.js"></script>
+
+	<script type="text/javascript">
+		var username = /^[a-zA-Z0-9_]{3,20}$/;
+		var password = /^[a-zA-Z0-9@#$&]{5,20}$/;
+		var email = /^(?=.*[a-zA-Z])(?!^[0-9._%+-]+$)([a-zA-Z][a-zA-Z0-9._%+-]*@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/i;
+
+		function checkUsername(){
+				if(username.test($("#username").val())){
+					$("#username-err").text("Valid");
+					$("#username-err").removeClass("red");
+					$("#username-err").addClass("green");
+					return true;
+				}else{
+					$("#username-err").text("Invalid");
+					$("#username-err").removeClass("green");
+					$("#username-err").addClass("red");
+					return false;
+				}
+		}
+
+		function checkEmail(){
+			if(email.test($("#email").val())){
+					$("#email-err").text("Valid");
+					$("#email-err").removeClass("red");
+					$("#email-err").addClass("green");
+					return true;
+				}else{
+					$("#email-err").text("Invalid");
+					$("#email-err").removeClass("green");
+					$("#email-err").addClass("red");
+					return false;
+				}
+		}
+
+		function checkPassword(){
+			if(password.test($("#password").val())){
+					$("#password-err").text("Valid");
+					$("#password-err").removeClass("red");
+					$("#password-err").addClass("green");
+					return true;
+				}else{
+					$("#password-err").text("Invalid");
+					$("#password-err").removeClass("green");
+					$("#password-err").addClass("red");
+					return false;
+				}
+		}
+
+		function validate(){
+			if(checkUsername()){
+				if(checkEmail()){
+					if(checkPassword()){
+						console.log("submit");
+					}else{
+						event.preventDefault();
+					}
+				}else{
+					event.preventDefault();
+				}
+			}else{
+				event.preventDefault();
+			}
+		};
+	</script>
+
+
+
+</body>
+</html>
